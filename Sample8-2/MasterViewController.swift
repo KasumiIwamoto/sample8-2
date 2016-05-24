@@ -60,11 +60,13 @@ class MasterViewController: UITableViewController {
             //配列の選択した行を調べてその値を受け渡す
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row] as! String
-                let controller = segue.destinationViewController as! DetailViewController
+                let controller = (segue.destinationViewController as!  UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
               
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+ 
+/*                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
+*/
 
             }
         }
